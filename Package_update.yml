@@ -1,6 +1,6 @@
 #Package update
 ---
-- hosts: testbox3
+- hosts: all
   tasks:
   #PACKAGE UPDATES
     - name: Update Packages
