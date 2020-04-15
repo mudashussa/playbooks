@@ -1,6 +1,7 @@
 #Package update
 ---
 - hosts: all
+  become=yes
   tasks:
   #PACKAGE UPDATES
     - name: Update Packages
