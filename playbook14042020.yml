@@ -1,0 +1,85 @@
+#Package update
+---
+- hosts: testbox3
+  vars:
+    user1: tim
+    user2: jan
+    sshkeypathuser1: '/home/tim/tim.pub'
+    sshkeypathuser2: '/home/jan/jan.pub'
+  tasks:
+ #PACKAGE UPDATES
+    - name: Update Packages
+      apt:
+        update_cache=yes
+        force_apt_get=yes
+        cache_valid_time=3600
+
+ #UPGRADE PACKAGES   
+    - name: Upgrade All Packages
+      apt:
+        upgrade=dist
+        force_apt_get=yes
+
+#CREATE USER 1    
+    - name: Add User1
+      user:
+        name: "{{ user1 }}"
+        password: '$6$LBVKzK.mvdT25k$8PXutYz85Iq7TcneeTEUYI3v.IX.dobOdpA2ySGyByS5p/78Bx7ui7QhKcn5ZMwXS/XT/YgtRKKYsPUND7Vfw/'
+        groups:
+          - sudo
+        state: present
+        shell: /bin/bash
+        system: no
+        home: "/home/{{user1}}"
+
+#SET SSH KEY IN AUTHORIZED_KEY   
+    - name: sshkeyq
+      authorized_key:
+        user: "{{user1}}"
+        state: present
+        key: "{{ lookup('file', sshkeypathuser1) }}"
+
+#CREATE USER 2   
+    - name: Add User2
+      user:
+        name: "{{user2}}"
+        password: '$6$LBVKzK.mvdT25k$8PXutYz85Iq7TcneeTEUYI3v.IX.dobOdpA2ySGyByS5p/78Bx7ui7QhKcn5ZMwXS/XT/YgtRKKYsPUND7Vfw/'
+        groups:
+          - sudo
+        state: present
+        shell: /bin/bash
+        system: no
+        home: "/home/{{user2}}"
+
+#SET SSH AUTHORIZED KEY    
+    - name: sshkeym
+      authorized_key:
+        user: "{{user2}}"
+        state: present
+        key: "{{ lookup('file', sshkeypathuser2) }}"
+
+#add nginx repository and install
+
+    - name: add apt-key
+      apt_key:
+        url: http://nginx.org/keys/nginx_signing.key
+        state: present
+    
+    - name: add nginx apt repo
+      apt_repository:
+        repo: 'deb https://nginx.org/packages/mainline/ubuntu bionic nginx'
+        state: present
+        filename: nginx
+        update_cache: yes
+
+    - name: Update Packages 2
+      apt:
+        update_cache=yes
+        force_apt_get=yes
+        cache_valid_time=3600
+    
+    - name: install nginx
+      apt:
+       name: nginx
+       state: latest
+       update_cache: yes

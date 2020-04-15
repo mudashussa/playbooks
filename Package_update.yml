@@ -1,0 +1,15 @@
+#Package update
+---
+- hosts: linux
+  tasks:
+  #PACKAGE UPDATES
+    - name: Update Packages
+      apt:
+        update_cache=yes
+        force_apt_get=yes
+        cache_valid_time=3600
+    
+    - name: Upgrade All Packages
+      apt:
+        upgrade=dist
+        force_apt_get=yes

@@ -1,0 +1,14 @@
+#Apache Installation
+---
+- hosts: linux
+  tasks:
+
+    - name: install apache
+      apt:
+        name: apache2
+        state: latest
+    
+    - name: start apache
+      service:
+        name: apache2
+        state: started

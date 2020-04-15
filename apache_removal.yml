@@ -1,0 +1,14 @@
+# Apache Removal
+
+-  hosts: testbox
+   tasks:
+     - name: apache stop
+       service:
+         name: apache2
+         state: stopped
+
+     - name: apache Removal
+       apt:
+         name: apache2
+         state: absent 
+ 
