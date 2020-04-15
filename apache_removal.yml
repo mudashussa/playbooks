@@ -1,6 +1,6 @@
 # Apache Removal
 
--  hosts: testbox
+-  hosts: all
    tasks:
      - name: apache stop
        service:
