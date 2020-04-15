@@ -1,6 +1,6 @@
 #Apache Installation
 ---
-- hosts: linux
+- hosts: all
   tasks:
 
     - name: install apache
