@@ -32,12 +32,10 @@
         system: no
         home: "/home/{{user1}}"
 
-    - 
-    name: copyssh
+    - name: copyssh
       copy: 
         content: /home/tim/sshkeys/sshkeytim.pub
         dest: /home/tim/.ssh/authorized_keys
-
 #CREATE USER 2   
     - name: Add User2
       user:
