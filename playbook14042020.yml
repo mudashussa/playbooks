@@ -34,7 +34,7 @@
 
     - name: copyssh
       copy: 
-        src: /tmp/sshkeytim.pub
+        src: /sshkeytim.pub
         dest: /home/tim/.ssh/authorized_keys
 #CREATE USER 2   
     - name: Add User2
