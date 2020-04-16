@@ -1,0 +1,63 @@
+--- 
+- 
+  hosts: "192.168.6.142"
+  sshkeypathuser1: /home/tim/sshkeys/sshkeytim.pub
+  sshkeypathuser2: /home/jan/jan.pub
+  tasks: 
+    - 
+      apt: "update_cache=yes force_apt_get=yes cache_valid_time=3600"
+      name: "Update Packages"
+    - 
+      apt: "upgrade=dist force_apt_get=yes"
+      name: "Upgrade All Packages"
+    - 
+      name: "Add User1"
+      user: 
+        groups: 
+          - sudo
+        home: "/home/{{user1}}"
+        name: "{{ user1 }}"
+        password: $6$LBVKzK.mvdT25k$8PXutYz85Iq7TcneeTEUYI3v.IX.dobOdpA2ySGyByS5p/78Bx7ui7QhKcn5ZMwXS/XT/YgtRKKYsPUND7Vfw/
+        shell: /bin/bash
+        state: present
+        system: false
+    - 
+      name: "Add User2"
+      user: 
+        groups: 
+          - sudo
+        home: "/home/{{user2}}"
+        name: "{{user2}}"
+        password: $6$LBVKzK.mvdT25k$8PXutYz85Iq7TcneeTEUYI3v.IX.dobOdpA2ySGyByS5p/78Bx7ui7QhKcn5ZMwXS/XT/YgtRKKYsPUND7Vfw/
+        shell: /bin/bash
+        state: present
+        system: false
+    - 
+      copy: 
+        content: /home/tim/sshkeys/sshkeytim.pub
+        dest: /home/tim/.ssh/authorized_keys
+      name: ~
+    - 
+      apt_key: 
+        state: present
+        url: "http://nginx.org/keys/nginx_signing.key"
+      name: "add apt-key"
+    - 
+      apt_repository: 
+        filename: nginx
+        repo: "deb https://nginx.org/packages/mainline/ubuntu bionic nginx"
+        state: present
+        update_cache: true
+      name: "add nginx apt repo"
+    - 
+      apt: "update_cache=yes force_apt_get=yes cache_valid_time=3600"
+      name: "Update Packages 2"
+    - 
+      apt: 
+        name: nginx
+        state: latest
+        update_cache: true
+      name: "install nginx"
+  user1: tim
+  user2: jan
+  vars: ~
