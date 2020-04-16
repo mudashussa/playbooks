@@ -4,8 +4,8 @@
   vars:
     user1: tim
     user2: jan
-    sshkeypathuser1: home/tim/sshkeys/sshkeytim.pub
-    sshkeypathuser2: home/jan/jan.pub
+    sshkeypathuser1: /home/tim/sshkeys/sshkeytim.pub
+    sshkeypathuser2: /home/jan/jan.pub
   tasks:
  #PACKAGE UPDATES
     - name: Update Packages
@@ -34,7 +34,7 @@
 
     - name: copyssh
       copy: 
-        src: /home/tim/sshkeys/sshkeytim.pub
+        content: /home/tim/sshkeys/sshkeytim.pub
         dest: /home/tim/.ssh/authorized_keys
 #CREATE USER 2   
     - name: Add User2
