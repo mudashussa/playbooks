@@ -8,7 +8,7 @@
     sshkeypathuser2: '/home/jan/jan.pub'
   
   vars_files:
-   -  ./vars/uservars.yml
+   -  ./uservars.yml
   
   tasks:
  #PACKAGE UPDATES
