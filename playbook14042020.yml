@@ -38,10 +38,10 @@
 #        user: "{{user1}}"
 #        state: present
 #        key: "{{ lookup('file', sshkeypathuser1) }}"
-  -name: copy ssh key
+  - name: copy ssh key
     copy:
      src: /home/tim/sshkeys/sshkeytim.pub
-     dest: /home/tim/.ssh/authorized_keys
+     dest: /home/tim/sshkeytim.pub
 
 #CREATE USER 2   
     - name: Add User2
