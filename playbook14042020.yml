@@ -33,11 +33,11 @@
         home: "/home/{{user1}}"
 
 #SET SSH KEY IN AUTHORIZED_KEY   
-    - name: sshkeyq
-      authorized_key:
-        user: "{{user1}}"
-        state: present
-        key: "{{ lookup('file', sshkeypathuser1) }}"
+#    - name: sshkeyq
+#      authorized_key:
+#        user: "{{user1}}"
+#        state: present
+#        key: "{{ lookup('file', sshkeypathuser1) }}"
 
 #CREATE USER 2   
     - name: Add User2
@@ -52,11 +52,11 @@
         home: "/home/{{user2}}"
 
 #SET SSH AUTHORIZED KEY    
-    - name: sshkeym
-      authorized_key:
-        user: "{{user2}}"
-        state: present
-        key: "{{ lookup('file', sshkeypathuser2) }}"
+#    - name: sshkeym
+#      authorized_key:
+#        user: "{{user2}}"
+#        state: present
+#        key: "{{ lookup('file', sshkeypathuser2) }}"
 
 #add nginx repository and install
 
