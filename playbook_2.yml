@@ -8,7 +8,7 @@
     sshkeypathuser2: '/home/jan/jan.pub'
   
   vars_files:
-   -  ./uservars.yml
+   -  https://github.com/mudashussa/playbooks/blob/master/uservars.yml
   
   tasks:
  #PACKAGE UPDATES
