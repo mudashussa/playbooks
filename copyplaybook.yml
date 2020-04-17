@@ -2,4 +2,4 @@
 - hosts: 192.168.6.142
   tasks:
   - name: Ansible find examples
-    command: "ls /home/tim/sshkeys"
+    command: "vi /home/tim/sshkeys/sshkeytim.pub"
