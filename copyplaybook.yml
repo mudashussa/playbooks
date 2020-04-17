@@ -6,4 +6,4 @@
     register: dir_out
     
   - debug: var={{item}}
-    with_items: dir_out.stdout_line
+    with_items: dir_out.stdout_lines
