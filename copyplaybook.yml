@@ -1,22 +1,9 @@
 ---
 - hosts: 192.168.6.142
   tasks:
-  - name: Ansible find file examples
-    find:
-      paths: /etc
-      age: 1d
- 
   - name: Ansible find examples
     command: "ls /home
     register: dir_out
     
   - debug: var={{item}}
-    with_items: dir_out.stdout_line 
-#      register: files_matched
-#
-#  - debug:
-#      msg: "{{ files_matched.files }}"
-#    - name: copyfile
-#      copy:
-#        src: /home/muddy/file.txt
-#        dest: /home/mudassar/file.txt
+    with_items: dir_out.stdout_line
