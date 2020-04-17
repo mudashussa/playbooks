@@ -3,12 +3,12 @@
   tasks:
   - name: Ansible find file examples
     find:
-      paths: /etc/
+      paths: /home/
       age: 1d
-#      register: files_matched
+      register: files_matched
 #
-#  - debug:
-#      msg: "{{ files_matched.files }}"
+  - debug:
+      msg: "{{ files_matched.files }}"
 #    - name: copyfile
 #      copy:
 #        src: /home/muddy/file.txt
