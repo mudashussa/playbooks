@@ -3,7 +3,7 @@
   tasks:
   - name: Ansible find file examples
     find:
-      paths: /home/
+      paths: /home/admin
       age: 1d
 #      register: files_matched
 #
