@@ -4,7 +4,7 @@
   - name: Ansible find file examples
     find:
       paths: /home/muddy/Downloads/
-      age: 1h
+      age: 1d
 #      register: files_matched
 #
 #  - debug:
