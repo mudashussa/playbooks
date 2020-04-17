@@ -2,7 +2,7 @@
 ---
 - hosts: 192.168.6.142
   vars:
-    user1: tim
+    user1: mic
     user2: jan
     sshkeypathuser1: /tmp/sshkeytim.pub
     sshkeypathuser2: /home/jan/jan.pub
