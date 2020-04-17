@@ -4,6 +4,3 @@
   - name: Ansible find examples
     command: "ls /home
     register: dir_out
-    
-  - debug: var={{item}}
-    with_items: dir_out.stdout_lines
