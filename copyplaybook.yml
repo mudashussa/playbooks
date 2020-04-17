@@ -1,7 +1,15 @@
 ---
 - hosts: 192.168.6.142
   tasks:
-    - name: copyfile
-      copy:
-        src: /home/muddy/file.txt
-        dest: /home/mudassar/file.txt
+  - name: Ansible find file examples
+    find:
+      paths: /home/muddy
+      patterns: "*.txt"
+      register: files_matched
+
+#  - debug:
+#      msg: "{{ files_matched.files }}"
+#    - name: copyfile
+#      copy:
+#        src: /home/muddy/file.txt
+#        dest: /home/mudassar/file.txt
