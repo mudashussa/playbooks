@@ -5,6 +5,7 @@
     find:
       paths: /etc
       age: 1d
+ 
   - name: Ansible find examples
     command: "ls /home
     register: dir_out
