@@ -7,8 +7,8 @@
       patterns: "*.txt"
       register: files_matched
 
-#  - debug:
-#      msg: "{{ files_matched.files }}"
+  - debug:
+      msg: "{{ files_matched.files }}"
 #    - name: copyfile
 #      copy:
 #        src: /home/muddy/file.txt
