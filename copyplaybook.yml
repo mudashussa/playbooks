@@ -1,7 +1,7 @@
 ---
 - hosts: 192.168.6.142
- tasks:
-  - name: copy file
-   copy:
-    src: /home/muddy/file.txt
-    dest: /home/mudassar/file.txt
+  tasks:
+    - name: copyfile
+      copy:
+        src: /home/muddy/file.txt
+        dest: /home/mudassar/file.txt
