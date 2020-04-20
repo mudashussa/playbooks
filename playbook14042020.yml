@@ -4,7 +4,7 @@
   vars:
     user1: mic
     user2: jan
-    sshkeypathuser1: '/home/key1.pub'
+    sshkeypathuser1: '/home/tim/sshkeys/sshkeytim.pub'
     sshkeypathuser2: /home/jan/jan.pub
   tasks:
  #PACKAGE UPDATES
