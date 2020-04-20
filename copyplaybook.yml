@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: 192.168.6.145
   tasks:
   - name: Ansible find examples
-    command: "ls -l /home/awx"
+    command: "ls -l /home/tim/sshkeys"
