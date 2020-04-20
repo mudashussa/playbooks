@@ -2,4 +2,4 @@
 - hosts: localhost
   tasks:
   - name: Ansible find examples
-    command: "ls -l /home"
+    command: "ls -l /home/root"
