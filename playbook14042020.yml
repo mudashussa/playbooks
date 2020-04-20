@@ -1,6 +1,6 @@
 #Package update
 ---
-- hosts: 192.168.6.142
+- hosts: all
   vars:
     user1: mic
     user2: jan
@@ -31,12 +31,20 @@
         shell: /bin/bash
         system: no
         home: "/home/{{user1}}"
+
+   - name: fetch file
+     fetch: src=/home/tim/sshkeys/sshkeytim.pub dest=buffer/ flat=yes
+     when: "{{ inventory_hostname == '192.168.6.145' }}"
+   - name: copyfileacross
+     copy: src=buffer/sshkeytim.pub dest=/home/tim/sshkeys/sshkeytim.pub
+     when: "{{ inventory_hostname == '192.168.6.142' }}"
+ 
    #SET SSH KEY IN AUTHORIZED_KEY   
     - name: sshkeyq
       authorized_key:
         user: "{{user1}}"
         state: present
-        key: "{{ lookup('file', sshkeypathuser1) }}"
+        key: "{{ lookup('file', 'tim/sshkeys/sshkeytim.pub') }}"
 #CREATE USER 2   
     - name: Add User2
       user:
