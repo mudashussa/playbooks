@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  connection: local
   tasks:
    - name: fetch file
      fetch: src=/home/tim/sshkeys/sshkeytim.pub dest=buffer/ flat=yes
