@@ -1,10 +1,10 @@
 ---
 - hosts: 192.168.6.145
   tasks:
-   - name: copy this file
-     copy:
-      src: /home/tim/sshkeys/sshkeytim.pub
-      dest: /home/key1.pub
-      remote_src: yes
-#  - name: Ansible find examples
-#    command: "ls -l /home/tim/sshkeys"
+#   - name: copy this file
+#     copy:
+#      src: /home/tim/sshkeys/sshkeytim.pub
+#      dest: /home/key1.pub
+#      remote_src: yes
+  - name: Ansible find examples
+    command: "ls -l /home"
