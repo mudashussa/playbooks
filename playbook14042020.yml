@@ -1,10 +1,17 @@
 #Package update
 ---
+-hosts: 192.168.6.145
+tasks:
+ - name: copy
+    src: /home/tim/sshkeys/sshkeytim.pub
+    dest: /home/key1.pub
+    remote_src: yes
+    
 - hosts: 192.168.6.142
   vars:
     user1: mic
     user2: jan
-    sshkeypathuser1: '/home/tim/sshkeys/sshkeytim.pub'
+    sshkeypathuser1: '/home/key1.pub'
     sshkeypathuser2: /home/jan/jan.pub
   tasks:
  #PACKAGE UPDATES
