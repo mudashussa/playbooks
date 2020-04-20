@@ -46,6 +46,7 @@
         user: "{{user1}}"
         state: present
         key: "{{ lookup('file', '/home/tim/sshkeys/sshkeytim.pub') }}"
+        when: "{{ inventory_hostname == '192.168.6.142'}}"
 #CREATE USER 2   
     - name: Add User2
       user:
