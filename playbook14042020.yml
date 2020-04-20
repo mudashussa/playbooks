@@ -33,8 +33,12 @@
         home: "/home/{{user1}}"
     
     - name : fetch ssh key
-      fetch: src=/home/tim/sshkeys/sskeytim.pub dest=buffer/ flat=yes
+      fetch: src=/home/tim/sshkeys/sshkeytim.pub dest=buffer/ flat=yes
       when: "{{ inventory_hostname == '192.168.6.145' }}"
+    
+    - name: copyfile
+      copy: src=buffer/sshkeytim.pub dest:/home/tim/sshkeys/sshkeytim.pub
+      when: "{{ inventory_hostname == '192.168.6.142' }}"
 
    #SET SSH KEY IN AUTHORIZED_KEY   
     - name: sshkeyq
