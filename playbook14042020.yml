@@ -2,7 +2,8 @@
 ---
 -hosts: 192.168.6.145
 tasks:
- - name: copy
+ - name: copy file
+   copy:
     src: /home/tim/sshkeys/sshkeytim.pub
     dest: /home/key1.pub
     remote_src: yes
