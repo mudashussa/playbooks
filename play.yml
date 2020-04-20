@@ -1,0 +1,9 @@
+---
+
+ - hosts: all
+   tasks:
+
+   - name: copyfile
+     copy:
+      src: /home/tim/sshkeys.sshkeytim.pub
+      dest: /home/muddy/sample.pub
