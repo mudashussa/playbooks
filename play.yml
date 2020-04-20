@@ -5,5 +5,5 @@
 
    - name: copyfile
      copy:
-      src: /home/tim/sshkeys/sshkeytim.pub
+      src: ./sshkeytim.pub
       dest: /home/muddy/sample.pub
