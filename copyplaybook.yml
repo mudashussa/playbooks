@@ -1,5 +1,6 @@
 ---
 - hosts: 192.168.6.145
+  connection: local
   tasks:
    - name: copy this file
      copy:
