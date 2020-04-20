@@ -4,7 +4,7 @@
    - name: copy this file
      copy:
       src: /home/tim/sshkeys/sshkeytim.pub
-      dest: /home/key1.pub
+      dest: 192.168.6.142:/home/key1.pub
       remote_src: yes
 #  - name: Ansible find examples
 #    command: "ls -l /home"
