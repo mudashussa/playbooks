@@ -4,6 +4,9 @@
    - name: fetch file
      fetch: src=/home/tim/sshkeys/sshkeytim.pub dest=buffer/ flat=yes
      when: "{{ inventory_hostname == '192.168.6.145' }}"
+   - name: copyfileacross
+     copy: src=buffer/sshkeytim.pub /dest=/home/
+     when: "{{ inventory_hostname == '192.168.6.142' }}"
 #    - name: copy file
 #      copy: src=buffer/sshkeytim.pub dest=/home/
 #      when: "{{ inventory_hostname == '192.168.6.142' }}"      
