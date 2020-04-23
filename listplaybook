@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks:
+  - name: Ansible find examples
+    command: "ls -l /home"
